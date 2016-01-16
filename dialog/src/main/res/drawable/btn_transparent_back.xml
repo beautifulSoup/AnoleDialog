@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 用于图片按钮的背景，点下后有灰色的提示 -->
+    <item android:state_pressed="true" android:drawable="@color/shit_light_gray_a50" />
+    <item android:drawable="@android:color/transparent" />
+</selector>

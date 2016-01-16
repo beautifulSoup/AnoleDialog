@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_f"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2dp"
+        android:minHeight="139.5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/shit_black"
+        android:textSize="16sp"
+        android:visibility="visible"
+        android:text=""/>
+</RelativeLayout>

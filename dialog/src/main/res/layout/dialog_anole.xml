@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <!-- 该布局主要用于AnoleDialog中的前三种类型 progressDialog不使用该布局-->
+
+    <!-- 默认居中 左右各离屏幕边缘30dp-->
+    <LinearLayout
+        android:id="@+id/dialog_anole_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <!-- head 默认用来放Title 默认不显示-->
+        <RelativeLayout
+            android:id="@+id/dialog_anole_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/shit_light_blue"
+            android:visibility="gone">
+        </RelativeLayout>
+
+
+        <!-- middle 默认用来放Dialog的内容 -->
+        <RelativeLayout
+            android:id="@+id/dialog_anole_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/white_f"
+            android:visibility="visible">
+        </RelativeLayout>
+
+        <!-- foot 默认用来放Dialog的按钮  -->
+        <RelativeLayout
+            android:id="@+id/dialog_anole_foot"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:background="@color/white_f"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
