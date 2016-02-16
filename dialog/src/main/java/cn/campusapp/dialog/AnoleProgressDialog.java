@@ -141,6 +141,11 @@ public class AnoleProgressDialog extends AnoleDialog {
         return (AnoleProgressDialog) super.setBackgroundColor(colorId);
     }
 
+    public AnoleProgressDialog setLoadingText(String text){
+        getProgressHolder().setLoadingText(text);
+        return this;
+    }
+
     /**
      *
      * @param colorId

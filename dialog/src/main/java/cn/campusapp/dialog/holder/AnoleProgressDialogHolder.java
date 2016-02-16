@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.jpardogo.android.googleprogressbar.library.ChromeFloatingCirclesDrawable;
 import com.jpardogo.android.googleprogressbar.library.FoldingCirclesDrawable;
@@ -175,6 +176,15 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
     }
 
 
+    public void setLoadingText(String text){
+        if(mType != ProgressType.DEFAULT){
+            Timber.e("当前类型不支持设置加载文字");
+        } else {
+            TextView tv = (TextView) mRootView.findViewById(R.id.progress_text);
+            tv.setText(text);
+        }
+    }
+
     /**
      * 四种Progress的样式，参考GoogleProgressBar
      */
@@ -202,6 +212,9 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
             return DEFAULT;
         }
     }
+
+
+
 
 
 }

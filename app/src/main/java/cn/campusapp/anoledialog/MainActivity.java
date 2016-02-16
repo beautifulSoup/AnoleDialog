@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AnoleProgressDialog.build(MainActivity.this).show();
+                AnoleProgressDialog.build(MainActivity.this).setLoadingText("hahah ").show();
             }
         });
         Button btn3 = (Button) findViewById(R.id.btn3);
