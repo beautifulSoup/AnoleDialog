@@ -21,9 +21,8 @@
             android:text="加载中..."
             android:textColor="@color/black_4d"
             android:textSize="12sp" />
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="@style/defaultProgressBar"
+        <ImageView
+            android:id="@+id/progress_iv"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_below="@id/progress_text"

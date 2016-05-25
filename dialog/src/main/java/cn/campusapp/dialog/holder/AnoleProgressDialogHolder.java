@@ -1,13 +1,17 @@
 package cn.campusapp.dialog.holder;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -51,6 +55,16 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
         mType = type;
         if (type == ProgressType.DEFAULT) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_progress, null);
+            final ImageView progressIv = (ImageView) view.findViewById(R.id.progress_iv);
+            AnimationDrawable drawable = getDefaultDrawable();
+            if(android.os.Build.VERSION.SDK_INT >= 16){
+                progressIv.setBackground(drawable);
+            } else {
+                progressIv.setBackgroundDrawable(drawable);
+            }
+            if(drawable != null && !drawable.isRunning()){
+                drawable.start();
+            }
             mProgressDialogLayout.addView(view);
         } else {
             Drawable drawable = getProgressDrawable(mContext, type, colorArray);
@@ -129,6 +143,7 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
         setTypeAndColor(type, null);
     }
 
+    @TargetApi(16)
     public void setTypeAndColor(@Nullable ProgressType type, @Nullable int[] colors) {
         if (type == null)
             type = ProgressType.DEFAULT;
@@ -136,6 +151,16 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
         mProgressDialogLayout.removeAllViews();
         if (type == ProgressType.DEFAULT) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_progress, null);
+            final ImageView progressIv = (ImageView) view.findViewById(R.id.progress_iv);
+            AnimationDrawable drawable = getDefaultDrawable();
+            if(android.os.Build.VERSION.SDK_INT >= 16){
+                progressIv.setBackground(drawable);
+            } else {
+                progressIv.setBackgroundDrawable(drawable);
+            }
+            if(drawable != null && !drawable.isRunning()){
+                drawable.start();
+            }
             mProgressDialogLayout.addView(view);
         } else {
             Drawable drawable = getProgressDrawable(mContext, type, colors);
@@ -149,6 +174,27 @@ public class AnoleProgressDialogHolder extends BaseAnoleDialogHolder {
         }
     }
 
+    protected AnimationDrawable getDefaultDrawable(){
+        AnimationDrawable mAnimation = new AnimationDrawable();
+        mAnimation.addFrame(getDrawable(R.drawable.progress_1),100);
+        mAnimation.addFrame(getDrawable(R.drawable.progress_2),100);
+        mAnimation.addFrame(getDrawable(R.drawable.progress_3),100);
+        mAnimation.addFrame(getDrawable(R.drawable.progress_4),100);
+        mAnimation.addFrame(getDrawable(R.drawable.progress_5),100);
+        mAnimation.addFrame(getDrawable(R.drawable.progress_6), 100);
+        mAnimation.setOneShot(false);
+        return mAnimation;
+    }
+
+
+    @TargetApi(21)
+    protected Drawable getDrawable(@DrawableRes int drawRes){
+        if(android.os.Build.VERSION.SDK_INT >= 21){
+            return mContext.getResources().getDrawable(drawRes, null);
+        } else {
+            return mContext.getResources().getDrawable(drawRes);
+        }
+    }
     /**
      * 设置ProgressDialog的宽高尺寸
      *
