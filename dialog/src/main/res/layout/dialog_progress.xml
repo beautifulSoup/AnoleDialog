@@ -26,6 +26,8 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_below="@id/progress_text"
+            android:src="@drawable/progress_1"
+            android:tint="@color/shit_light_blue"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp" />
     </RelativeLayout>
